@@ -1,0 +1,75 @@
+ideology_vibeha = {
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_vbh.dds"
+	
+	character_ideology = yes
+
+	lawgroup_governance_principles = {
+		law_monarchy = approve
+		law_presidential_republic = disapprove
+		law_parliamentary_republic = disapprove
+		law_theocracy = strongly_disapprove
+		law_council_republic = strongly_approve
+	}
+
+	lawgroup_education_system = {
+		law_private_schools = neutral
+		law_public_schools = strongly_approve
+		law_religious_schools = approve
+		law_no_schools = disapprstrongly_disapproveove
+	}
+
+	possible = {
+		scope:interest_group = { 
+			OR = {
+				is_interest_group_type = ig_armed_forces
+                is_interest_group_type = ig_devout
+                is_interest_group_type = ig_industrialists
+				is_interest_group_type = ig_intelligentsia
+				is_interest_group_type = ig_petty_bourgeoisie
+				is_interest_group_type = ig_rural_folk
+				is_interest_group_type = ig_trade_unions
+			}
+		}
+		scope:interest_group = {
+			NOR = {
+				has_variable = chose_fascism
+			}
+		}
+	}
+	
+	leader_weight = {
+		value = 100
+		# Ít có khả năng xuất hiện trong một chế độ Thần quyền
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_theocracy
+				}
+			}
+			add = -75
+		}
+		# Dễ xuất hiện nhân vật khi hạnh phúc trong chế độ Hội đồng Cộng hòa
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_council_republic
+				}
+				scope:interest_group = {
+					ig_approval > 5
+				}
+			}
+			add = 75
+		}
+        # Dễ xuất hiện nhân vật có tư tưởng khi có luật Trường công
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_law = law_type:law_public_schools
+					}
+				}
+			}
+			add = 100
+		}
+	}
+}

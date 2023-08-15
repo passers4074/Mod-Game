@@ -1,0 +1,53 @@
+﻿vietnamese={
+	color= hsv{ 0.31 0.37 0.48 }
+	religion = dao_mau
+	traits = { sinosphere southeast_asian_heritage }
+	male_common_first_names={
+		Van_Quang
+		Van_Phong
+		Thanh_Phong
+		Tuan_Thanh
+		Thien_Long
+		Thanh_Long
+		Minh_Long
+		Minh_Thien
+	}
+	female_common_first_names = {
+		Minh_Hang
+		Minh_Nguyet
+		Minh_Chau
+		Minh_Thu
+		Thanh_Thu
+		Thanh_Thao
+		Thu_Thao
+		Nhu_Ngoc
+		Minh_Ngoc
+		Hong_Ngoc
+		Quynh_Dung
+		Quynh_Dao
+	}	
+	noble_last_names = {
+		Ho_Ngo
+		Ho_Dinh
+		Ho_Ly
+		Ho_Tran
+		Ho_Ho
+		Ho_Le
+		Ho_Mac
+		Ho_Nguyen
+	}
+	common_last_names={
+		Ho_Pham
+		Ho_Huynh
+		Ho_Phan
+		Ho_Vu
+		Ho_Dang
+		Ho_Bui
+		Ho_Do
+		Ho_Duong
+	}
+	ethnicities = {
+		1 = asian
+	}
+	graphics = asian
+}

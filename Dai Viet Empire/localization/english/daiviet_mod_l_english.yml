@@ -1,0 +1,244 @@
+﻿l_english:
+
+###########################################################################################################################################
+######################################                      Tên quốc gia                             ######################################
+###########################################################################################################################################
+ dyn_c_daiviet_empire:0 "Đế Quốc Đại Việt"
+
+###########################################################################################################################################
+######################################                    Tiền tố hải quân                           ######################################
+###########################################################################################################################################
+ flotilla_prefix_vbh:0 "VBH"
+
+###########################################################################################################################################
+######################################                   Kỷ nguyên công nghệ                         ######################################
+###########################################################################################################################################
+ era_1:0 "Công nghệ kỷ nguyên thứ I"
+ era_2:0 "Công nghệ kỷ nguyên thứ II"
+ era_3:0 "Công nghệ kỷ nguyên thứ III"
+ era_4:0 "Công nghệ kỷ nguyên thứ IV"
+ era_5:0 "Công nghệ kỷ nguyên thứ V"
+
+###########################################################################################################################################
+######################################                        Modifiers                              ######################################
+###########################################################################################################################################
+ daiviet_empire_revive_modifier:0 "Đế chế hồi sinh!"
+ daiviet_ourarmy_strong_modifier:0 "Quân ta mạnh!"
+
+###########################################################################################################################################
+######################################                         Tư tưởng                              ######################################
+###########################################################################################################################################
+ ideology_vibeha:0 "Vì Bệ Hạ"
+ ideology_vibeha_desc:0 "#lore Lòng trung thành của chúng tôi giành cho Ngài, thưa Bệ Hạ. #!"
+
+ ideology_DaoMau:0 "Tín ngưỡng Thờ Mẫu"
+ ideology_DaoMau_desc:0 "#---# Tín ngưỡng bản địa Việt Nam.#!"
+
+ ig_Nutu_DaoMau:1 "Nữ tu Đạo Mẫu"
+ ig_Nutu_DaoMau_desc:1 "Tín ngưỡng thờ Mẫu Việt Nam là một tín ngưỡng bản địa lấy việc tôn thờ Mẫu (Mẹ) làm thần tượng với các quyền năng sinh sôi, bảo trợ và che chở cho con người."
+
+ dao_mau:0 "Đạo Mẫu"
+
+###########################################################################################################################################
+######################################                        Quyết định                             ######################################
+###########################################################################################################################################
+  # Quyết định "Chào mừng trở về" (daiviet_welcomereturn_decision)
+ daiviet_welcomereturn_decision:0 "Chào mừng trở về"
+ daiviet_welcomereturn_decision_desc:0 "Đằng sau bức màn lấp ló bóng hình một bàn tay. Liệu thế giới đã sẵn sàng chào đón kẻ cai trị."
+ daiviet_welcomereturn_decision_tooltip:0 "Người đã trở lại!"
+
+#==============================================================================================================================================#
+#==============================================================================================================================================#
+  # Quyết định "Đế chế hồi sinh" (daiviet_empirerevive_decision)
+ daiviet_empirerevive_decision:0 "Đế chế hồi sinh"
+ daiviet_empirerevive_decision_desc:0 "Sau hàng vạn năm yên giấc, đã đến lúc Đế chế hồi sinh từ đống tro tàn."
+ daiviet_empirerevive_decision_tooltip:0 "Phượng hoàng niết bàn, Đế chế hồi sinh!"
+
+#==============================================================================================================================================#
+#==============================================================================================================================================#
+  # Quyết định "Kỷ nguyên Công nghệ mới bắt đầu" (daiviet_eranewtech_decision)
+ daiviet_eranewtech_decision:0 "Kỷ nguyên Công nghệ mới bắt đầu"
+ daiviet_eranewtech_decision_desc:0 "Quá khứ, hiện tại, tương lai. Thế giới dung hòa, thời không dung nhập. Một kỷ nguyên công nghệ mới sẽ mở ra."
+ daiviet_eranewtech_decision_tooltip:0 "Ánh sáng tri thức soi sáng thế gian!"
+
+#==============================================================================================================================================#
+#=================================================#  Chuỗi quyết định điều chỉnh luật pháp   #=================================================#
+  # Quyết định "Bắt đầu điều chỉnh Luật pháp" (daiviet_adjustlaws_decision)
+ daiviet_adjustlaws_decision:0 "Điều chỉnh Luật pháp"
+ daiviet_adjustlaws_decision_desc:0 "Những luật pháp phong kiến đang kìm kẹp đất nước này. Ta cần loại bỏ và thay thế bằng những điều luật phù hợp hơn."
+ daiviet_adjustlaws_decision_tooltip:0 "Vì một thế giới mới!"
+
+  # Quyết định "Điều chỉnh Luật kinh tế" (daiviet_economylaws_decision)
+ daiviet_economylaws_decision:0 "Điều chỉnh Luật kinh tế"
+ daiviet_economylaws_decision_desc:0 "Dân giàu nước mạnh!"
+ daiviet_economylaws_decision_tooltip:0 "Dân giàu nước mạnh!"
+
+  # Quyết định "Điều chỉnh Luật cấu trúc quyền lực" (daiviet_powerstructurelaws_decision)
+ daiviet_powerstructurelaws_decision:0 "Điều chỉnh Luật cấu trúc quyền lực"
+ daiviet_powerstructurelaws_decision_desc:0 "Xã hội công bằng!"
+ daiviet_powerstructurelaws_decision_tooltip:0 "Xã hội công bằng!"
+
+  # Quyết định "Điều chỉnh Luật con người" (daiviet_humanrightslaws_decision)
+ daiviet_humanrightslaws_decision:0 "Điều chỉnh Luật con người"
+ daiviet_humanrightslaws_decision_desc:0 "Dân chủ văn minh!"
+ daiviet_humanrightslaws_decision_tooltip:0 "Dân chủ văn minh!"
+
+  # Quyết định "Hoàn thành bộ luật Đế chế" (daiviet_perfectinglaws_decision)
+ daiviet_perfectinglaws_decision:0 "Hoàn thành bộ luật Đế chế"
+ daiviet_perfectinglaws_decision_desc:0 "Dân giàu nước mạnh! Xã hội công bằng! Dân chủ văn minh!"
+ daiviet_perfectinglaws_decision_tooltip:0 "Bình minh phía chân trời!"
+
+#==============================================================================================================================================#
+#==============================================================================================================================================#
+  # Quyết định "Bí mật bị thời gian chôn giấu" (daiviet_timeburiedsecrets_decision)
+ daiviet_timeburiedsecrets_decision:0 "Bí mật bị thời gian chôn giấu"
+ daiviet_timeburiedsecrets_decision_desc:0 "Đoàn thám hiểm Nam Cực khi trở về đã công bố những khám phá của họ, một bí mật bị chôn giấu giờ đây sẽ được phơi bày ra ánh sáng."
+ daiviet_timeburiedsecrets_decision_tooltip:0 "Hãy vén lên bức màn lịch sử!"
+
+#==============================================================================================================================================#
+#==============================================================================================================================================#
+  # Quyết định "Hướng tới đại dương phía bên kia bầu trời" (daiviet_oceanbeyondsky_decision)
+ daiviet_oceanbeyondsky_decision:0 "Hướng tới đại dương phía bên kia bầu trời"
+ daiviet_oceanbeyondsky_decision_desc:0 "Tiếng chuông đã vang, thời khắc đã điểm. Tiến lên!"
+ daiviet_oceanbeyondsky_decision_tooltip:0 "Thống nhất Đông Dương!"
+
+  # Quyết định "Như ý Ngài!" (daiviet_asyouwish_decision)
+ daiviet_asyouwish_decision:0 "Như ý Ngài"
+ daiviet_asyouwish_decision_desc:0 "Kho bạc đang dần cạn, bè lũ cấp tiến đang gia tăng. Hãy kêu gọi sự ủng hộ của dân chúng."
+ daiviet_asyouwish_decision_tooltip:0 "Như ý Ngài, Bệ hạ của chúng tôi!"
+
+###########################################################################################################################################
+######################################                         Sự kiện                               ######################################
+###########################################################################################################################################
+  # Sự kiện "Chào mừng Người trở về, Bệ Hạ của chúng tôi" (daiviet_events)
+ daiviet_events.1.t:0 "Chào mừng Người trở về, Bệ Hạ của chúng tôi"
+ daiviet_events.1.d:0 "Một ngày năm 1836, màn đêm yên tĩnh bỗng bị thay thế bởi ánh sáng của một vì sao xẻ dọc bầu trời. Người dân khắp vương quốc cùng chắp tay cầu nguyện, lời nguyện cầu cho sự trở về của một con người vĩ đại đáng kính."
+ daiviet_events.1.f:0 "Chào mừng Người đã trở lại, Bệ Hạ của chúng tôi!\nDù cho Người đã quên đi chúng tôi, quên đi vùng đất mà bản thân từng hi sinh mạng sống để bảo vệ. Nhưng những kẻ bề tôi này luôn khắc ghi điều đó và nguyện cầu một lần nữa được sát cánh bên Người."
+ daiviet_events.1.a:0 "Vinh Quang dành cho Người!"
+
+  # Sự kiện "Một chính phủ mới" (daiviet_events.2)
+ daiviet_events.2.t:0 "Một chính phủ mới"
+ daiviet_events.2.d:0 "Đất nước ngày càng phát triển đòi hỏi những người lãnh đạo đủ tầm vóc trèo lái con thuyền quốc gia đi đúng hướng. Kèm với đó việc bảo vệ chàng trai cũng là một vấn đề cấp thiết, người dân tuyệt đối sẽ không đánh mất anh hùng của họ một lần nữa. Dưới sự chỉ đạo của triều đình hoàng gia, các học giả cùng tu sĩ đã thực hiện triệu hồi các Anh linh tiên hiền trở lại lãnh đạo đất nước."
+ daiviet_events.2.f:0 "Vì một đế chế hùng cường, vì một Bệ Hạ đáng kính. Hỡi những Anh linh đang ngủ yên trong dòng sông lịch sử, hãy đến và trở thành thành thanh kiếm, tấm khiên của Người."
+ daiviet_events.2.a:0 "Triệu hồi Anh Linh!"
+
+  # Sự kiện "Đạo Mẫu Việt Nam" (daiviet_events.3)
+ daiviet_events.3.t:0 "Tín ngưỡng Đạo Mẫu"
+ daiviet_events.3.d:0 "Là một tín ngưỡng bản địa lâu đời của người dân Việt Nam, Đạo Mẫu giờ đây đã có được vị trí xứng đáng mà nó thuộc về."
+ daiviet_events.3.f:0 "Tín ngưỡng thờ Mẫu Việt Nam là một tín ngưỡng bản địa lấy việc tôn thờ Mẫu (Mẹ) làm thần tượng với các quyền năng sinh sôi, bảo trợ và che chở cho con người."
+ daiviet_events.3.a:0 "Tín ngưỡng của chúng ta"
+
+  # Sự kiện "Cổ dân trở về" (daiviet_events.4)
+ daiviet_events.4.t:0 "Cổ dân trở về"
+ daiviet_events.4.d:0 "Nửa cuối cuộc Thánh chiến Vệ tinh lần thứ nhất, sau khi đã đẩy lùi kẻ thù về bên kia khe nứt không gian và và phong ấn nó. Với những người thực hiện ma pháp, linh hồn họ đã bị trói buộc trong phong ấn và họ sẽ chết nếu cách nó quá xa. Vạn năm qua, họ vẫn ở đó, hậu duệ họ vẫn ở đó, trên nền tuyết trắng xóa canh giữ cho thế nhân những tháng ngày bình yên."
+ daiviet_events.4.f:0 "Rải rác phương xa mồ viễn xứ,\nChiến trường đi chẳng tiếc đời xanh,\nVĩnh hằng phong ấn anh nằm đó,\nTổ quốc ngồi đây khóc một mình!"
+ daiviet_events.4.a:0 "Chào mừng về nhà, đồng bào!"
+ 
+
+###########################################################################################################################################
+######################################                       Tên nhân vật                            ######################################
+###########################################################################################################################################
+  # Tên Nam
+ Van_Quang:0 "Văn Quang"
+ Van_Phong:0 "Văn Phong"
+ Thanh_Phong:0 "Thanh Phong"
+ Tuan_Thanh:0 "Tuấn Thành"
+ Thien_Long:0 "Thiên Long"
+ Thanh_Long:0 "Thanh Long"
+ Minh_Long:0 "Minh Long"
+ Minh_Thien:0 "Minh Thiên"
+
+  # Tên Nữ
+ Minh_Hang:0 "Minh Hằng"
+ Minh_Nguyet:0 "Minh Nguyệt"
+ Minh_Chau:0 "Minh Châu"
+ Minh_Thu:0 "Minh Thư"
+ Thanh_Thu:0 "Thanh Thư"
+ Thanh_Thao:0 "Thanh Thảo"
+ Thu_Thao:0 "Thu Thảo"
+ Nhu_Ngoc:0 "Như Ngọc"
+ Minh_Ngoc:0 "Minh Ngọc"
+ Hong_Ngoc:0 "Hồng Ngọc"
+ Quynh_Dung:0 "Quỳnh Dung"
+ Quynh_Dao:0 "Quỳnh Dao"
+
+  # Bát Vương Tộc
+ Ho_Ngo:0 "Ngô"
+ Ho_Dinh:0 "Đinh"
+ Ho_Ly:0 "Lý"
+ Ho_Tran:0 "Trần"
+ Ho_Ho:0 "Hồ"
+ Ho_Le:0 "Lê"
+ Ho_Mac:0 "Mạc"
+ Ho_Nguyen:0 "Nguyễn"
+
+  # Thập Tứ Gia ()
+ Ho_Pham:0 "Phạm"
+ Ho_Huynh:0 "Huỳnh"
+ Ho_Phan:0 "Phan"
+ Ho_Vu:0 "Vũ"
+ Ho_Dang:0 "Đặng"
+ Ho_Bui:0 "Bùi"
+ Ho_Do:0 "Đỗ"
+ Ho_Duong:0 "Dương"
+
+  # Nhân vật mới
+ Anh_Linh:0 "Anh linh"
+
+ De_I:0 "đệ Nhất"
+ De_II:0 "đệ Nhị"
+ De_III:0 "đệ Tam"
+ De_IV:0 "đệ Tứ"
+ De_V:0 "đệ Ngũ"
+
+  # —Knight of the Sword and Heroic Spirit of the Sword. A jack-of-all-trades warrior. Agile and powerful in close quarters; extremely adept at swordsmanship.—
+  # —Hiệp sĩ của Kiếm và Anh linh của Kiếm. Một chiến binh đa năng. Nhanh nhẹn và mạnh mẽ trong khoảng cách gần; cực kỳ lão luyện trong kiếm thuật.—
+ Saber:0 "Saber"
+
+  # —Knight of the Bow and Heroic Spirit of the Bow. Excellent scouts that excel in possessing powerful Noble Phantasms. Masters of long ranged warfare.—
+  # —Kị sĩ của Cung và Anh linh của Cung. Những trinh sát xuất sắc sở hữu những Bảo Khí cực mạnh. Bậc thầy về chiến tranh tầm xa.—
+ Archer:0 "Archer"
+
+  # —Knight of the Lance and Heroic Spirit of the Lance. Gifted with extreme agility and proficient in hit-and-run tactics as well as ranged melee weapons such as spears and lances.—
+  # —Hiệp sĩ của Thương và Anh linh của Thương. Có năng khiếu cực kỳ nhanh nhẹn và thông thạo chiến thuật đánh và chạy cũng như các vũ khí cận chiến tầm xa như giáo và Thương.—
+ Lancer:0 "Lancer"
+
+  # —Mounted Knight and Heroic Spirit of the Mount. Experts of the mount able to tame any beast, be it mythical or mechanical.—
+  # —Hiệp sĩ của Sự gắn kết và Anh Linh của Sự gắn kết. Các chuyên gia về thú cưỡi có thể thuần hóa bất kỳ con thú nào, dù là thần thoại hay máy móc.—
+ Rider:0 "Rider"
+
+  # —Magus and Heroic Spirit of Spells and Sorcery. Adept in magecraft, being one of the few able to use sorceries of the highest caliber.—
+  # —Pháp sư và Anh linh của Phép Thuật và Yêu Thuật. Tinh thông ma thuật, là một trong số ít người có thể sử dụng ma thuật cao cấp nhất.—
+ Caster:0 "Caster"
+
+  # —Silent Killer and Heroic Spirit of Assassinations. Extremely skilled at covert, stealthy, and silent operations.—
+  # —Kẻ giết người thầm lặng và Anh Linh của Ám sát. Cực kỳ thành thạo trong các hoạt động bí mật, lén lút và thầm lặng.—
+ Assassin:0 "Assassin"
+
+  # —Standard-Bearer who Correctly Guides the Holy Grail War. Virtuous warriors summoned by the Holy Grail itself, tasked with governing the rituals of the Grail Wars.—
+  # —Người mang tiêu chuẩn, người chỉ đạo chính xác Cuộc Chiến Chén Thánh. Những chiến binh nhân đức được triệu tập bởi chính Chén Thánh, được giao nhiệm vụ điều hành các nghi thức của Cuộc Chiến Chén Thánh.—
+ Ruler:0 "Ruler"
+
+  # —Vigilante and Heroic Spirit of Vengeance. Vindictive warriors that bear great hatred in the past, the embodiment of hatred itself. The dark side of the Holy Grail, which is the contents in the cup.—
+  # —Cảnh vệ và Anh linh báo thù. Những chiến binh thù hận mang trong mình sự thù hận lớn trong quá khứ, hiện thân của chính sự thù hận. Mặt tối của Chén Thánh, là những thứ bên trong chiếc cốc.—
+ Avenger:0 "Avenger"
+
+  # —A title bestowed to those who threaten the world of the Moon, those who attempted to invade the core of SE.RA.PH. The Cancer of the Moon Cell.—
+  # —Một danh hiệu được ban cho những kẻ đe dọa thế giới Mặt trăng, những kẻ đã cố gắng xâm chiếm lõi của SE.RA.PH. Ung thư tế bào mặt trăng.—
+ Moon_Cancer:0 "Moon Cancer"
+
+  # —Alternate aspects and personalities split from their originals. Instead of being proper Heroic Spirits, they're personifications of emotions, wishes and various aspects that belong to others.—
+  # —Các khía cạnh và tính cách thay thế khác với bản gốc của họ. Thay vì là những Anh Linh đúng nghĩa, họ là hiện thân của cảm xúc, mong muốn và nhiều khía cạnh thuộc về người khác.—
+ Alter_Ego:0 "Alter Ego"
+
+  # —Those who wield power drawn from outside human boundaries. Entities from different dimensions that are foreign to human comprehension.—
+  # —Những kẻ nắm giữ sức mạnh đến từ bên ngoài ranh giới con người. Các thực thể từ các chiều không gian khác nhau xa lạ với sự hiểu biết của con người.—
+ Foreigner:0 "Foreigner"
+ 
+  # —Those who have given false representation, deceiving and misleading others to do great deeds. Not a fake or counterfeit, but someone who deceives even the soul until more power and greater achievements than the real thing remain.—
+  # —Những người đã trình bày sai sự thật, lừa dối và đánh lạc hướng người khác để làm những việc lớn. Không phải giả mạo hay giả mạo, mà là kẻ lừa dối cả linh hồn cho đến khi còn lại nhiều sức mạnh và thành tựu vĩ đại hơn cả vật thật.—
+ Pretender:0 "Pretender"
+
+  # —Master of Defense and Servant of the Shield. One-of-a-kind warrior boasting near impregnable defense. Half-servant, half-human; an unexplainable existence.—
+  # —Bậc thầy Phòng thủ và Servant của Khiên. Chiến binh có một không hai tự hào với khả năng phòng thủ gần như bất khả xâm phạm. Nửa người hầu, nửa người; một sự tồn tại không thể giải thích được.—
+ Shielder:0 "Shielder"

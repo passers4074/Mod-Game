@@ -1,0 +1,16 @@
+DAI = { # Đại Nam
+	dynamic_country_name = {
+		name = dyn_c_daiviet_empire						# Đổi tên thành "Đế Quốc Đại Việt"
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		# Điều kiện kích hoạt
+		trigger = {
+			coa_def_communist_flag_trigger = yes			# Kiểm tra có cờ chế độ Hội đồng Cộng hòa
+
+			# Kiểm tra quốc gia, nếu có rank bằng hoặc cao hơn major_power sẽ kích hoạt
+			country_rank >= rank_value:major_power
+		}
+	}
+}

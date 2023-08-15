@@ -1,0 +1,63 @@
+# Modifiers "Đế chế hồi sinh"
+daiviet_empire_revive_modifier = {
+	icon = gfx/interface/icons/daiviet_modifier_icons/modifier_icon_empire_revive.dds
+
+	# Tăng 5000 "Xây dựng" (construction)
+	country_construction_add = 5000
+
+	# Tăng 10000 "Bộ máy quan liêu" (bureaucracy)
+	country_bureaucracy_add = 10000
+
+	# Tăng 10000 "Quyền hạn" (authority)
+	country_authority_add = 10000
+
+	# Tăng 10000 "Ảnh hưởng" (influence)
+	country_influence_add = 10000
+	
+	# Tăng 500 "Tính hợp pháp của Chính phủ" (legitimacy)
+	country_legitimacy_base_add = 500
+
+	# Tăng 5000 "Đổi mới công nghệ mỗi tuần" (innovation)
+	country_weekly_innovation_add = 5000
+
+	# Tăng 5000 "Đổi mới công nghệ mỗi tuần tối đa" (innovation max)
+	country_weekly_innovation_max_add = 5000
+
+	# Tăng 5000 "Lan truyền công nghệ" (Technology spread)
+	country_tech_spread_add = 5000
+
+	# Tăng 100% "Kéo di cư" (migration pull)
+	#state_migration_pull_mult = 1
+
+	# Tăng 100% tỷ lệ sinh
+	#state_birth_rate_mult = 1
+
+	# Tăng 100% tỷ lệ đồng hóa
+	#state_assimilation_mult = 1
+}
+
+# Modifiers "Quân ta mạnh"
+daiviet_ourarmy_strong_modifier = {
+	icon = gfx/interface/icons/daiviet_modifier_icons/modifier_icon_ourarmy_strong.dds
+
+	# Tăng 100 "offense" (Offense)
+	unit_offense_add = 100
+	
+	# Tăng 100 "defense" (Defense)
+	unit_defense_add = 100
+
+	# Tăng 25% "Tỷ lệ Tiêu diệt" (Kill Rate)
+	unit_kill_rate_add = 0.25
+
+	# Tăng 25% "Tỷ lệ Phục hồi" (Recovery Rate)
+	unit_recovery_rate_add = 0.25
+
+	# Tăng 25% "Tỷ lệ Tổn thương tinh thần" (Morale Damage)
+	unit_morale_damage_mult = 0.25
+
+	# Tăng 50 "Đề án sức mạnh quân đội" (Army Power Projection)
+	#country_army_power_projection_add = 100
+
+	# Tăng 50 "Đề án sức mạnh hải quân" (Navy Power Projection)
+	#country_navy_power_projection_add = 100
+}

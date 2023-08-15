@@ -1,0 +1,673 @@
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+# Quyết định "Chào mừng trở về" (daiviet_welcomereturn_decision)
+daiviet_welcomereturn_decision = {
+	# Xác định điều kiện để Quyết định (decisions) được hiển thị trong bảng Decisions
+	is_shown = {
+		exists = c:DAI	# Kiểm tra quốc gia DAI có tồn tại
+		this = c:DAI	# Kiểm tra người chơi (AI) hiện tại có là DAI
+        
+        # Kiểm tra, nếu hoàn thành "Chào mừng trở về" (có "daiviet_welcomereturn_decision_complete") sẽ ẩn đi
+        NOT = { 
+			has_variable = daiviet_welcomereturn_decision_complete
+		}
+	}
+
+	# Điều kiện để thực hiện Quyết định (decisions)
+	possible = {
+		this = c:DAI						# Kiểm tra người chơi (AI) hiện tại có là DAI
+		has_law = law_type:law_monarchy		# Kiểm tra có Chế độ quân chủ
+		has_law = law_type:law_autocracy	# Kiểm tra có Chánh thể chuyên chế
+	}
+	
+	# Những thứ thay đổi khi click vào Quyết định (decisions)
+	when_taken = {
+		# Sự kiện "Chào mừng Người trở về, Bệ Hạ của chúng tôi" (daiviet_events.1)
+		trigger_event = { id = daiviet_events.1 }
+		
+        # Thêm "daiviet_welcomereturn_decision_complete"
+		set_variable = {
+			name = daiviet_welcomereturn_decision_complete
+			value = yes
+		}
+	}
+
+	# Quyết định có thể được AI sử dụng (Không được)
+	ai_chance = {
+		base = 0
+    }
+}
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+# Quyết định "Đế chế hồi sinh" (daiviet_empirerevive_decision)
+daiviet_empirerevive_decision = {
+	# Xác định điều kiện để Quyết định (decisions) được hiển thị trong bảng Decisions
+	is_shown = {
+		exists = c:DAI	# Kiểm tra quốc gia DAI có tồn tại
+		this = c:DAI	# Kiểm tra người chơi (AI) hiện tại có là DAI
+        
+        # Kiểm tra, nếu hoàn thành "Chào mừng trở về" (có "daiviet_welcomereturn_decision_complete") sẽ xuất hiện
+        has_variable = daiviet_welcomereturn_decision_complete
+
+        # Kiểm tra, nếu hoàn thành "Đế chế hồi sinh" (có "daiviet_empirerevive_decision_complete") sẽ ẩn đi
+        NOT = { 
+			has_variable = daiviet_empirerevive_decision_complete
+		}
+	}
+
+	# Điều kiện để thực hiện Quyết định (decisions)
+	possible = {
+		this = c:DAI						# Kiểm tra người chơi (AI) hiện tại có là DAI
+		has_law = law_type:law_monarchy		# Kiểm tra có Chế độ quân chủ
+		has_law = law_type:law_autocracy	# Kiểm tra có Chánh thể chuyên chế
+	}
+	
+	# Những thứ thay đổi khi click vào Quyết định (decisions)
+	when_taken = {
+		# Thêm modifier "Đế chế hồi sinh" (daiviet_empire_revive_modifier)
+		add_modifier = {
+			name = daiviet_empire_revive_modifier
+		}
+
+        # Thêm "daiviet_empirerevive_decision_complete"
+		set_variable = {
+			name = daiviet_empirerevive_decision_complete
+			value = yes
+		}
+	}
+
+	# Quyết định có thể được AI sử dụng (Không được)
+	ai_chance = {
+		base = 0
+    }
+}
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+# Quyết định "Kỷ nguyên Công nghệ mới bắt đầu" (daiviet_eranewtech_decision)
+daiviet_eranewtech_decision = {
+	# Xác định điều kiện để Quyết định (decisions) được hiển thị trong bảng Decisions
+	is_shown = {
+		exists = c:DAI	# Kiểm tra quốc gia DAI có tồn tại
+		this = c:DAI	# Kiểm tra người chơi (AI) hiện tại có là DAI
+        
+        # Kiểm tra, nếu hoàn thành "Đế chế hồi sinh" (có "daiviet_empirerevive_decision_complete") sẽ xuất hiện
+        has_variable = daiviet_empirerevive_decision_complete
+
+        # Kiểm tra, nếu hoàn thành "Kỷ nguyên Công nghệ mới bắt đầu" (có "daiviet_eranewtech_decision_complete") sẽ ẩn đi
+        NOT = { 
+			has_variable = daiviet_eranewtech_decision_complete
+		}
+	}
+
+	# Điều kiện để thực hiện Quyết định (decisions)
+	possible = {
+		this = c:DAI						# Kiểm tra người chơi (AI) hiện tại có là DAI
+		
+		# Kiểm tra, nếu có modifier "Đế chế hồi sinh" (daiviet_empire_revive_modifier) sẽ kích hoạt
+		has_modifier = daiviet_empire_revive_modifier
+	}
+	
+	# Những thứ thay đổi khi click vào Quyết định (decisions)
+	when_taken = {
+		add_era_researched = era_1
+		add_era_researched = era_2
+		add_era_researched = era_3
+
+        # Thêm "daiviet_eranewtech_decision_complete"
+		set_variable = {
+			name = daiviet_eranewtech_decision_complete
+			value = yes
+		}
+	}
+
+	# Quyết định có thể được AI sử dụng (Không được)
+	ai_chance = {
+		base = 0
+    }
+}
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+# Quyết định "Bắt đầu điều chỉnh Luật pháp" (daiviet_adjustlaws_decision)
+daiviet_adjustlaws_decision = {
+	# Xác định điều kiện để Quyết định (decisions) được hiển thị trong bảng Decisions
+	is_shown = {
+		exists = c:DAI	# Kiểm tra quốc gia DAI có tồn tại
+		this = c:DAI	# Kiểm tra người chơi (AI) hiện tại có là DAI
+        
+        # Kiểm tra, nếu hoàn thành "Kỷ nguyên Công nghệ mới bắt đầu" (có "daiviet_eranewtech_decision_complete") sẽ xuất hiện
+        has_variable = daiviet_eranewtech_decision_complete
+
+        # Kiểm tra, nếu hoàn thành "Bắt đầu điều chỉnh Luật pháp" (daiviet_adjustlaws_decision_complete) sẽ ẩn đi
+        NOT = { 
+			has_variable = daiviet_adjustlaws_decision_complete
+		}
+	}
+
+	# Điều kiện để thực hiện Quyết định (decisions)
+	possible = {
+		this = c:DAI						# Kiểm tra người chơi (AI) hiện tại có là DAI
+		
+		# Kiểm tra, nếu có modifier "Đế chế hồi sinh" (daiviet_empire_revive_modifier) sẽ kích hoạt
+		has_modifier = daiviet_empire_revive_modifier
+	}
+	
+	# Những thứ thay đổi khi click vào Quyết định (decisions)
+	when_taken = {
+		#
+        
+        # Thêm "daiviet_adjustlaws_decision_complete"
+		set_variable = {
+			name = daiviet_adjustlaws_decision_complete
+			value = yes
+		}
+	}
+
+	# Quyết định có thể được AI sử dụng (Không được)
+	ai_chance = {
+		base = 0
+    }
+}
+
+#=======================================================================================================================================#
+# Quyết định "Điều chỉnh Luật kinh tế" (daiviet_economylaws_decision)
+daiviet_economylaws_decision = {
+	# Xác định điều kiện để Quyết định (decisions) được hiển thị trong bảng Decisions
+	is_shown = {
+		exists = c:DAI	# Kiểm tra quốc gia DAI có tồn tại
+		this = c:DAI	# Kiểm tra người chơi (AI) hiện tại có là DAI
+        
+        # Kiểm tra, nếu hoàn thành "Bắt đầu điều chỉnh Luật pháp" (có "daiviet_adjustlaws_decision_complete") sẽ xuất hiện
+        has_variable = daiviet_adjustlaws_decision_complete
+
+        # Kiểm tra, nếu hoàn thành "Điều chỉnh Luật kinh tế" (daiviet_economylaws_decision_complete) sẽ ẩn đi
+        NOT = { 
+			has_variable = daiviet_economylaws_decision_complete
+		}
+	}
+
+	# Điều kiện để thực hiện Quyết định (decisions)
+	possible = {
+		this = c:DAI						# Kiểm tra người chơi (AI) hiện tại có là DAI
+
+		# Kiểm tra, nếu có modifier "Đế chế hồi sinh" (daiviet_empire_revive_modifier) sẽ kích hoạt
+		has_modifier = daiviet_empire_revive_modifier
+	}
+	
+	# Những thứ thay đổi khi click vào Quyết định (decisions)
+	when_taken = {
+		activate_law = law_type:law_command_economy				# Nền kinh tế chỉ huy
+		activate_law = law_type:law_free_trade				    # Thương mai tự do
+		activate_law = law_type:law_graduated_taxation			# Tốt nghiệp ngành thuế
+		activate_law = law_type:law_colonial_resettlement		# Thuộc địa tái định cư
+		activate_law = law_type:law_dedicated_police			# Lực lượng cảnh sát chuyên dụng
+		activate_law = law_type:law_public_schools				# Trường công
+		activate_law = law_type:law_public_health_insurance		# Bảo hiểm Y tế Công cộng
+
+        # Thêm "daiviet_economylaws_decision_complete"
+		set_variable = {
+			name = daiviet_economylaws_decision_complete
+			value = yes
+		}
+	}
+
+	# Quyết định có thể được AI sử dụng (Không được)
+	ai_chance = {
+		base = 0
+    }
+}
+
+#=======================================================================================================================================#
+# Quyết định "Điều chỉnh Luật cấu trúc quyền lực" (daiviet_powerstructurelaws_decision)
+daiviet_powerstructurelaws_decision = {
+	# Xác định điều kiện để Quyết định (decisions) được hiển thị trong bảng Decisions
+	is_shown = {
+		exists = c:DAI	# Kiểm tra quốc gia DAI có tồn tại
+		this = c:DAI	# Kiểm tra người chơi (AI) hiện tại có là DAI
+        
+        # Kiểm tra, nếu hoàn thành "Bắt đầu điều chỉnh Luật pháp" (có "daiviet_adjustlaws_decision_complete") sẽ xuất hiện
+        has_variable = daiviet_adjustlaws_decision_complete
+
+        # Kiểm tra, nếu hoàn thành "Điều chỉnh Luật cấu trúc quyền lực" (daiviet_powerstructurelaws_decision_complete) sẽ ẩn đi
+        NOT = { 
+			has_variable = daiviet_powerstructurelaws_decision_complete
+		}
+	}
+
+	# Điều kiện để thực hiện Quyết định (decisions)
+	possible = {
+		this = c:DAI						# Kiểm tra người chơi (AI) hiện tại có là DAI
+		
+		# Kiểm tra, nếu có modifier "Đế chế hồi sinh" (daiviet_empire_revive_modifier) sẽ kích hoạt
+		has_modifier = daiviet_empire_revive_modifier
+	}
+	
+	# Những thứ thay đổi khi click vào Quyết định (decisions)
+	when_taken = {
+		activate_law = law_type:law_council_republic			# Chế độ Hội đồng Cộng hòa
+		activate_law = law_type:law_autocracy					# Chánh thể chuyên chế
+		activate_law = law_type:law_ethnostate					# Chủ nghĩa dân tộc
+		activate_law = law_type:law_total_separation			# Tách biệt Tôn giáo và chính phủ
+		activate_law = law_type:law_appointed_bureaucrats		# Quan chức được bổ nhiệm
+		activate_law = law_type:law_professional_army			# Quân đội chuyên nghiệp
+		activate_law = law_type:law_secret_police				# Cảnh sát ngầm
+
+        # Thêm "daiviet_powerstructurelaws_decision_complete"
+		set_variable = {
+			name = daiviet_powerstructurelaws_decision_complete
+			value = yes
+		}
+	}
+
+	# Quyết định có thể được AI sử dụng (Không được)
+	ai_chance = {
+		base = 0
+    }
+}
+
+#=======================================================================================================================================#
+# Quyết định "Điều chỉnh Luật con người" (daiviet_humanrightslaws_decision)
+daiviet_humanrightslaws_decision = {
+	# Xác định điều kiện để Quyết định (decisions) được hiển thị trong bảng Decisions
+	is_shown = {
+		exists = c:DAI	# Kiểm tra quốc gia DAI có tồn tại
+		this = c:DAI	# Kiểm tra người chơi (AI) hiện tại có là DAI
+        
+        # Kiểm tra, nếu hoàn thành "Bắt đầu điều chỉnh Luật pháp" (có "daiviet_adjustlaws_decision_complete") sẽ xuất hiện
+        has_variable = daiviet_adjustlaws_decision_complete
+
+        # Kiểm tra, nếu hoàn thành "Điều chỉnh Luật con người" (daiviet_humanrightslaws_decision_complete) sẽ ẩn đi
+        NOT = { 
+			has_variable = daiviet_humanrightslaws_decision_complete
+		}
+	}
+
+	# Điều kiện để thực hiện Quyết định (decisions)
+	possible = {
+		this = c:DAI						# Kiểm tra người chơi (AI) hiện tại có là DAI
+		
+		# Kiểm tra, nếu có modifier "Đế chế hồi sinh" (daiviet_empire_revive_modifier) sẽ kích hoạt
+		has_modifier = daiviet_empire_revive_modifier
+	}
+	
+	# Những thứ thay đổi khi click vào Quyết định (decisions)
+	when_taken = {
+		activate_law = law_type:law_right_of_assembly			# Quyền lập hội
+		activate_law = law_type:law_worker_protections			# Bảo vệ người lao động
+		activate_law = law_type:law_compulsory_primary_school	# Trường tiểu học bắt buộc
+		activate_law = law_type:law_womens_suffrage				# Quyền bầu cử của phụ nữ
+		activate_law = law_type:law_old_age_pension				# Lương hưu tuổi già
+		activate_law = law_type:law_migration_controls			# Kiểm soát di chuyển
+		activate_law = law_type:law_slavery_banned				# Chế độ nô lệ bị cấm
+
+        # Thêm "daiviet_humanrightslaws_decision_complete"
+		set_variable = {
+			name = daiviet_humanrightslaws_decision_complete
+			value = yes
+		}
+	}
+
+	# Quyết định có thể được AI sử dụng (Không được)
+	ai_chance = {
+		base = 0
+    }
+}
+
+#=======================================================================================================================================#
+# Quyết định "Hoàn thành bộ luật Đế chế" (daiviet_perfectinglaws_decision)
+daiviet_perfectinglaws_decision = {
+	# Xác định điều kiện để Quyết định (decisions) được hiển thị trong bảng Decisions
+	is_shown = {
+		exists = c:DAI	# Kiểm tra quốc gia DAI có tồn tại
+		this = c:DAI	# Kiểm tra người chơi (AI) hiện tại có là DAI
+        
+        # Kiểm tra, nếu hoàn thành "Điều chỉnh Luật kinh tế" (có "daiviet_economylaws_decision_complete") sẽ xuất hiện
+        has_variable = daiviet_economylaws_decision_complete
+		# Kiểm tra, nếu hoàn thành "Điều chỉnh Luật cấu trúc quyền lực" (có "daiviet_powerstructurelaws_decision_complete") sẽ xuất hiện
+        has_variable = daiviet_powerstructurelaws_decision_complete
+		# Kiểm tra, nếu hoàn thành "Điều chỉnh Luật con người" (có "daiviet_humanrightslaws_decision_complete") sẽ xuất hiện
+        has_variable = daiviet_humanrightslaws_decision_complete
+
+        # Kiểm tra, nếu hoàn thành "Hoàn thành bộ luật Đế chế" (daiviet_perfectinglaws_decision_complete) sẽ ẩn đi
+        NOT = { 
+			has_variable = daiviet_perfectinglaws_decision_complete
+		}
+	}
+
+	# Điều kiện để thực hiện Quyết định (decisions)
+	possible = {
+		this = c:DAI						# Kiểm tra người chơi (AI) hiện tại có là DAI
+		
+		# Kiểm tra, nếu có modifier "Đế chế hồi sinh" (daiviet_empire_revive_modifier) sẽ kích hoạt
+		has_modifier = daiviet_empire_revive_modifier
+	}
+	
+	# Những thứ thay đổi khi click vào Quyết định (decisions)
+	when_taken = {
+		
+        # Sự kiện "Một chính phủ mới" (daiviet_events.2)
+		trigger_event = { id = daiviet_events.2 }
+
+        # Sự kiện "Tín ngưỡng Đạo Mẫu" (daiviet_events.3)
+		trigger_event = { id = daiviet_events.3 }
+
+        # Thêm "daiviet_perfectinglaws_decision_complete"
+		set_variable = {
+			name = daiviet_perfectinglaws_decision_complete
+			value = yes
+		}
+	}
+
+	# Quyết định có thể được AI sử dụng (Không được)
+	ai_chance = {
+		base = 0
+    }
+}
+
+#=======================================================================================================================================#
+# Quyết định "Như ý Ngài!"
+daiviet_asyouwish_decision = {
+	# Xác định điều kiện để Quyết định (decisions) được hiển thị trong bảng Decisions
+	is_shown = {
+		exists = c:DAI	# Kiểm tra quốc gia DAI có tồn tại
+		this = c:DAI	# Kiểm tra người chơi (AI) hiện tại có là DAI
+
+		# Kiểm tra, nếu hoàn thành "Hoàn thành bộ luật Đế chế" (có "daiviet_perfectinglaws_decision_complete") sẽ xuất hiện
+		has_variable = daiviet_perfectinglaws_decision_complete
+	}
+
+	# Điều kiện để thực hiện Quyết định (decisions)
+	possible = {
+		this = c:DAI						# Kiểm tra người chơi (AI) hiện tại có là DAI
+		
+		# Kiểm tra, nếu có modifier "Đế chế hồi sinh" (daiviet_empire_revive_modifier) sẽ kích hoạt
+		has_modifier = daiviet_empire_revive_modifier
+	}
+	
+	# Những thứ thay đổi khi click vào Quyết định (decisions)
+	when_taken = {
+		# Tăng 10% dân số trung thành
+		add_loyalists = {
+			value = 0.1	
+		}
+		# Tăng 1M cho Kho bạc
+		add_treasury = 1000000
+	}
+
+	# Quyết định có thể được AI sử dụng (Không được)
+	ai_chance = {
+		base = 0
+    }
+}
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+# Quyết định "Bí mật bị thời gian chôn giấu" (daiviet_timeburiedsecrets_decision)
+daiviet_timeburiedsecrets_decision = {
+	# Xác định điều kiện để Quyết định (decisions) được hiển thị trong bảng Decisions
+	is_shown = {
+		exists = c:DAI	# Kiểm tra quốc gia DAI có tồn tại
+		this = c:DAI	# Kiểm tra người chơi (AI) hiện tại có là DAI
+        
+        # Kiểm tra, nếu hoàn thành "Hoàn thành bộ luật Đế chế" (có "daiviet_perfectinglaws_decision_complete") sẽ xuất hiện
+        has_variable = daiviet_perfectinglaws_decision_complete
+
+		# Kiểm tra, nếu hoàn thành "Thám hiểm Nam Cực" (có "south_pole_reached") sẽ xuất hiện
+        has_global_variable = south_pole_reached
+
+        # Kiểm tra, nếu hoàn thành "Bí mật bị thời gian chôn giấu" (có "daiviet_timeburiedsecrets_decision_complete") sẽ ẩn đi
+        NOT = { 
+			has_variable = daiviet_timeburiedsecrets_decision_complete
+		}
+	}
+
+	# Điều kiện để thực hiện Quyết định (decisions)
+	possible = {
+		this = c:DAI						# Kiểm tra người chơi (AI) hiện tại có là DAI
+
+		# Kiểm tra, nếu có modifier "Đế chế hồi sinh" (daiviet_empire_revive_modifier) sẽ kích hoạt
+		has_modifier = daiviet_empire_revive_modifier
+	}
+	
+	# Những thứ thay đổi khi click vào Quyết định (decisions)
+	when_taken = {
+		#======================# Thêm quê hương #======================#
+		s:STATE_BANGKOK = { 
+			add_homeland = vietnamese
+		}
+		s:STATE_BURMA = { 
+			add_homeland = vietnamese
+		}
+		s:STATE_cAMBODIA = { 
+			add_homeland = vietnamese
+		}
+		s:STATE_cHIANG_MAI = { 
+			add_homeland = vietnamese
+		}
+		s:STATE_KACHIN = { 
+			add_homeland = vietnamese
+		}
+		s:STATE_LAOS = { 
+			add_homeland = vietnamese
+		}
+		s:STATE_MALAYA = { 
+			add_homeland = vietnamese
+		}
+		s:STATE_NAKHON_RATCHASIMA = { 
+			add_homeland = vietnamese
+		}
+		s:STATE_PEGU = { 
+			add_homeland = vietnamese
+		}
+		s:STATE_SHAN_STATES = { 
+			add_homeland = vietnamese
+		}
+		s:STATE_TENASSERIM = { 
+			add_homeland = vietnamese
+		}
+
+		#======================# Thêm quyền sở hữu các Bang #======================#
+		s:STATE_BANGKOK = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						 NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_BURMA = {  
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_cAMBODIA = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_cHIANG_MAI = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_KACHIN = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_LAOS = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_MALAYA = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_NAKHON_RATCHASIMA = {  
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_PEGU = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_SHAN_STATES = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_TENASSERIM = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+
+		# Sự kiện "Cổ dân trở về" (daiviet_events.4)
+		trigger_event = { id = daiviet_events.4 }
+
+		# Thêm "daiviet_timeburiedsecrets_decision_complete"
+		set_variable = {
+			name = daiviet_timeburiedsecrets_decision_complete
+			value = yes
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+# Quyết định "Hướng tới đại dương phía bên kia bầu trời" (daiviet_oceanbeyondsky_decision)
+daiviet_oceanbeyondsky_decision = {
+    # Xác định điều kiện để Quyết định (decisions) được hiển thị trong bảng Decisions
+	is_shown = {
+		exists = c:DAI	# Kiểm tra quốc gia DAI có tồn tại
+		this = c:DAI	# Kiểm tra người chơi (AI) hiện tại có là DAI
+        
+        # Kiểm tra, nếu hoàn thành "Bí mật bị thời gian chôn giấu" (có "daiviet_timeburiedsecrets_decision_complete") sẽ xuất hiện
+        has_variable = daiviet_timeburiedsecrets_decision_complete
+
+        # Kiểm tra, nếu hoàn thành "Hướng tới đại dương phía bên kia bầu trời" (có "daiviet_oceanbeyondsky_decision_complete") sẽ ẩn đi
+        NOT = { 
+			has_variable = daiviet_oceanbeyondsky_decision_complete
+		}
+	}
+
+	# Điều kiện để thực hiện Quyết định (decisions)
+	possible = {
+		this = c:DAI						# Kiểm tra người chơi (AI) hiện tại có là DAI
+
+		# Kiểm tra, nếu có modifier "Đế chế hồi sinh" (daiviet_empire_revive_modifier) sẽ kích hoạt
+		has_modifier = daiviet_empire_revive_modifier
+	}
+	
+	# Những thứ thay đổi khi click vào Quyết định (decisions)
+	when_taken = {
+		# Thôn tính LUA, CHP, CAM
+		annex = c:LUA
+		annex = c:CHP
+		annex = c:CAM
+		
+		# Thêm modifier "Quân ta mạnh" (daiviet_ourarmy_strong_modifier)
+		add_modifier = {
+			name = daiviet_ourarmy_strong_modifier
+		}
+
+		# Thêm "daiviet_oceanbeyondsky_decision_complete"
+		set_variable = {
+			name = daiviet_oceanbeyondsky_decision_complete
+			value = yes
+		}
+	}
+}
+
+
+

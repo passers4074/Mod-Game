@@ -1,0 +1,946 @@
+# Không gian tên chứa tên sự kiện
+namespace = daiviet_events
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+# Sự kiện "Chào mừng Người trở về, Bệ hạ của chúng tôi" - Thêm 100% Người dân Việt Nam trung thành
+daiviet_events.1 = {
+	type = country_event								# Loại sự kiện của quốc gia => ảnh hưởng lên cả quốc gia => modifier sẽ ảnh hưởng lên cả quốc gia
+
+	title = daiviet_events.1.t			# Tiêu đề sự kiện (Tên sự kiện)
+	desc = daiviet_events.1.d				# Mô tả khái quát sự kiện (In đậm trắng)
+	flavor = daiviet_events.1.f			# Hương vị sự kiện (Nét riêng của sự kiện)
+
+	# Hình ảnh sự kiện
+	event_image = {
+		video = "gfx/event_pictures/NguoiTroVe_Event.bk2"
+	}
+
+	# Biểu tượng sự kiện
+	icon = "gfx/interface/icons/event_icons/event_LordReturn.dds"
+
+	# Hiệu ứng âm thanh cho sự kiện
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"									# Âm thanh chờ (cảnh báo)
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/leader_speaking_to_a_group_of_people"		# Âm thanh mở
+
+	# Thời gian chờ đến khi biến mất (tính bằng tháng)
+	duration = 3
+
+	# Trình kích hoạt (được mở bởi một sự kiện)
+	trigger = {
+		# 
+	}
+
+	# Kích hoạt sự kiện nếu thỏa mãn điều kiện ngay cả khi không click vào
+	immediate = {
+		# 
+	}
+
+	# Các nút tùy chọn
+	# Mỗi nút có một trình kích hoạt (trigger) riêng, nếu không thỏa mãn sẽ không xuất hiện
+	option = {
+		# Tên
+		name = daiviet_events.1.a
+		default_option = yes
+            
+        # Thêm 100% Người dân Việt Nam trung thành
+        add_loyalists = {
+			culture = cu:vietnamese
+			value = 1
+		}
+	}
+}
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+# Sự kiện "Một chính phủ mới" - Thêm các nhân vật, tướng lĩnh và đô đốc vào bộ máy chính phủ
+daiviet_events.2 = {
+	type = country_event						# Loại sự kiện của quốc gia => ảnh hưởng lên cả quốc gia => modifier sẽ ảnh hưởng lên cả quốc gia
+
+	title = daiviet_events.2.t			# Tiêu đề sự kiện (Tên sự kiện)
+	desc = daiviet_events.2.d			    # Mô tả khái quát sự kiện (In đậm trắng)
+	flavor = daiviet_events.2.f			# Hương vị sự kiện (Nét riêng của sự kiện)
+
+	# Hình ảnh sự kiện
+	event_image = {
+		video = "gfx/event_pictures/TrieuHoi_Event.bk2"
+	}
+
+	# Biểu tượng sự kiện
+	icon = "gfx/interface/icons/event_icons/event_HeroicSpirit.dds"
+
+	# Hiệu ứng âm thanh cho sự kiện
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"									# Âm thanh chờ (cảnh báo)
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/leader_speaking_to_a_group_of_people"		# Âm thanh mở
+
+	# Thời gian chờ đến khi biến mất (tính bằng tháng)
+	duration = 3
+
+	# Trình kích hoạt (được mở bởi một sự kiện)
+	trigger = {
+		# 
+	}
+
+	# Kích hoạt sự kiện nếu thỏa mãn điều kiện ngay cả khi không click vào
+	immediate = {
+		# set_variable = 
+	}
+
+	# Các nút tùy chọn
+	# Mỗi nút có một trình kích hoạt (trigger) riêng, nếu không thỏa mãn sẽ không xuất hiện
+	option = {
+		# Tên 
+		name = daiviet_events.2.a
+		default_option = yes
+
+		hidden_effect = {
+			ruler = {
+				kill_character = yes
+			}
+			if = {
+				limit = {
+					any_scope_character = {
+						is_heir = yes
+					}
+				}
+				heir = {
+					kill_character = yes
+				}
+			}
+			# post_notification = warlord_china_explosion_point_add
+		}
+
+        #=============================================================================================#
+        #=====================================#   Đệ Nhất   #=========================================#
+        #=============================================================================================#
+		if = {
+			limit = {
+                NOT = {
+                    has_variable = De_Nhat
+                    has_variable = De_Nhi
+                    has_variable = De_Tam
+                    has_variable = De_Tu
+                }
+			}
+			# Ruler
+			create_character = {
+				first_name = "Ruler"
+				last_name = "De_I"
+				female = no
+				ruler = yes
+				age = 20
+				culture = cu:vietnamese
+				religion = dao_mau
+				interest_group = ig_intelligentsia
+				ideology = ideology_vibeha
+				traits = {
+					charismatic
+					meticulous
+					expert_political_operator
+				}
+			}
+            # Saber
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Saber"
+                last_name = "De_I"
+                female = no
+                ig_leader = yes
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    charismatic
+                    expert_artillery_commander
+                    expert_offensive_planner
+                }
+            }
+            # Shielder
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Shielder"
+                last_name = "De_I"
+                female = no
+                ig_leader = yes
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_trade_unions
+                ideology = ideology_vibeha
+                traits = {
+                    meticulous
+                    expert_artillery_commander
+                    expert_defensive_strategist
+                }
+            }
+            # Assassin
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Assassin"
+                last_name = "De_I"
+                female = no
+                ig_leader = yes
+                age = 21
+                hq = region_indochina
+                commander_rank = commander_rank_1
+                interest_group = ig_rural_folk
+                ideology = ideology_vibeha
+                traits = {
+                    reserved
+                    expert_artillery_commander
+                    expert_colonial_administrator
+                }
+            }
+            # Caster
+            create_character = {
+                first_name = "Caster"
+                last_name = "De_I"
+                female = yes
+                ig_leader = yes
+                age = 20
+                culture = cu:vietnamese
+                religion = dao_mau
+                interest_group = ig_devout
+                ideology = ideology_vibeha
+                traits = {
+                    meticulous
+                    charismatic
+                    expert_political_operator
+                }
+            }
+
+            # Avenger
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Avenger"
+                last_name = "De_I"
+                female = no
+                age = 18
+                hq = region_indochina
+                commander_rank = commander_rank_3
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+            # Alter Ego
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Alter_Ego"
+                last_name = "De_I"
+                female = no
+                age = 18
+                hq = region_indochina
+                commander_rank = commander_rank_3
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+            # Foreigner
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Foreigner"
+                last_name = "De_I"
+                female = no
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+
+            # Thêm "De_Nhat"
+            set_variable = {
+                name = De_Nhat
+                value = yes
+            }
+		}
+
+        #=============================================================================================#
+        #=====================================#   Đệ Nhị    #=========================================#
+        #=============================================================================================#
+		else_if = {
+			limit = {
+				AND = {
+                    has_variable = De_Nhat
+
+                    NOT = {
+                        has_variable = De_Nhi
+                        has_variable = De_Tam
+                        has_variable = De_Tu
+                    }
+                }
+			}
+			# Ruler
+			create_character = {
+				first_name = "Ruler"
+				last_name = "De_II"
+				female = no
+				ruler = yes
+				age = 20
+				culture = cu:vietnamese
+				religion = dao_mau
+				interest_group = ig_intelligentsia
+				ideology = ideology_vibeha
+				traits = {
+					charismatic
+					meticulous
+					expert_political_operator
+				}
+			}
+            # Saber
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Saber"
+                last_name = "De_II"
+                female = no
+                ig_leader = yes
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    charismatic
+                    expert_artillery_commander
+                    expert_offensive_planner
+                }
+            }
+            # Shielder
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Shielder"
+                last_name = "De_II"
+                female = no
+                ig_leader = yes
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_trade_unions
+                ideology = ideology_vibeha
+                traits = {
+                    meticulous
+                    expert_artillery_commander
+                    expert_defensive_strategist
+                }
+            }
+            # Assassin
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Assassin"
+                last_name = "De_II"
+                female = no
+                ig_leader = yes
+                age = 21
+                hq = region_indochina
+                commander_rank = commander_rank_1
+                interest_group = ig_rural_folk
+                ideology = ideology_vibeha
+                traits = {
+                    reserved
+                    expert_artillery_commander
+                    expert_colonial_administrator
+                }
+            }
+            # Caster
+            create_character = {
+                first_name = "Caster"
+                last_name = "De_II"
+                female = yes
+                ig_leader = yes
+                age = 20
+                culture = cu:vietnamese
+                religion = dao_mau
+                interest_group = ig_devout
+                ideology = ideology_vibeha
+                traits = {
+                    meticulous
+                    charismatic
+                    expert_political_operator
+                }
+            }
+
+            # Avenger
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Avenger"
+                last_name = "De_II"
+                female = no
+                age = 18
+                hq = region_indochina
+                commander_rank = commander_rank_3
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+            # Alter Ego
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Alter_Ego"
+                last_name = "De_II"
+                female = no
+                age = 18
+                hq = region_indochina
+                commander_rank = commander_rank_3
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+            # Foreigner
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Foreigner"
+                last_name = "De_II"
+                female = no
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+
+            # Thêm "De_Nhi"
+            set_variable = {
+                name = De_Nhi
+                value = yes
+            }
+		}
+
+        #=============================================================================================#
+        #=====================================#   Đệ Tam    #=========================================#
+        #=============================================================================================#
+		else_if = {
+			limit = {
+				AND = {
+                    year > 1875
+                    has_variable = De_Nhat
+                    has_variable = De_Nhi
+
+                    NOT = {
+                        has_variable = De_Tam
+                        has_variable = De_Tu
+                    }
+                }
+			}
+			# Ruler
+			create_character = {
+				first_name = "Ruler"
+				last_name = "De_III"
+				female = no
+				ruler = yes
+				age = 20
+				culture = cu:vietnamese
+				religion = dao_mau
+				interest_group = ig_intelligentsia
+				ideology = ideology_vibeha
+				traits = {
+					charismatic
+					meticulous
+					expert_political_operator
+				}
+			}
+            # Saber
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Saber"
+                last_name = "De_III"
+                female = no
+                ig_leader = yes
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    charismatic
+                    expert_artillery_commander
+                    expert_offensive_planner
+                }
+            }
+            # Shielder
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Shielder"
+                last_name = "De_III"
+                female = no
+                ig_leader = yes
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_trade_unions
+                ideology = ideology_vibeha
+                traits = {
+                    meticulous
+                    expert_artillery_commander
+                    expert_defensive_strategist
+                }
+            }
+            # Assassin
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Assassin"
+                last_name = "De_III"
+                female = no
+                ig_leader = yes
+                age = 21
+                hq = region_indochina
+                commander_rank = commander_rank_1
+                interest_group = ig_rural_folk
+                ideology = ideology_vibeha
+                traits = {
+                    reserved
+                    expert_artillery_commander
+                    expert_colonial_administrator
+                }
+            }
+            # Caster
+            create_character = {
+                first_name = "Caster"
+                last_name = "De_III"
+                female = yes
+                ig_leader = yes
+                age = 20
+                culture = cu:vietnamese
+                religion = dao_mau
+                interest_group = ig_devout
+                ideology = ideology_vibeha
+                traits = {
+                    meticulous
+                    charismatic
+                    expert_political_operator
+                }
+            }
+
+            # Avenger
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Avenger"
+                last_name = "De_III"
+                female = no
+                age = 18
+                hq = region_indochina
+                commander_rank = commander_rank_3
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+            # Alter Ego
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Alter_Ego"
+                last_name = "De_III"
+                female = no
+                age = 18
+                hq = region_indochina
+                commander_rank = commander_rank_3
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+            # Foreigner
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Foreigner"
+                last_name = "De_III"
+                female = no
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+
+            # Thêm "De_Tam"
+            set_variable = {
+                name = De_Tam
+                value = yes
+            }
+		}
+
+        #=============================================================================================#
+        #=====================================#    Đệ Tứ    #=========================================#
+        #=============================================================================================#
+		else_if = {
+			limit = {
+				AND = {
+                    year > 1900
+                    has_variable = De_Nhat
+                    has_variable = De_Nhi
+                    has_variable = De_Tam
+                }
+			}
+			# Ruler
+			create_character = {
+				first_name = "Ruler"
+				last_name = "De_IV"
+				female = no
+				ruler = yes
+				age = 20
+				culture = cu:vietnamese
+				religion = dao_mau
+				interest_group = ig_intelligentsia
+				ideology = ideology_vibeha
+				traits = {
+					charismatic
+					meticulous
+					expert_political_operator
+				}
+			}
+            # Saber
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Saber"
+                last_name = "De_IV"
+                female = no
+                ig_leader = yes
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    charismatic
+                    expert_artillery_commander
+                    expert_offensive_planner
+                }
+            }
+            # Shielder
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Shielder"
+                last_name = "De_IV"
+                female = no
+                ig_leader = yes
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_trade_unions
+                ideology = ideology_vibeha
+                traits = {
+                    meticulous
+                    expert_artillery_commander
+                    expert_defensive_strategist
+                }
+            }
+            # Assassin
+            create_character = {
+                is_general = yes        # General - Tướng
+                first_name = "Assassin"
+                last_name = "De_IV"
+                female = no
+                ig_leader = yes
+                age = 21
+                hq = region_indochina
+                commander_rank = commander_rank_1
+                interest_group = ig_rural_folk
+                ideology = ideology_vibeha
+                traits = {
+                    reserved
+                    expert_artillery_commander
+                    expert_colonial_administrator
+                }
+            }
+            # Caster
+            create_character = {
+                first_name = "Caster"
+                last_name = "De_IV"
+                female = yes
+                ig_leader = yes
+                age = 20
+                culture = cu:vietnamese
+                religion = dao_mau
+                interest_group = ig_devout
+                ideology = ideology_vibeha
+                traits = {
+                    meticulous
+                    charismatic
+                    expert_political_operator
+                }
+            }
+
+            # Avenger
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Avenger"
+                last_name = "De_IV"
+                female = no
+                age = 18
+                hq = region_indochina
+                commander_rank = commander_rank_3
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+            # Alter Ego
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Alter_Ego"
+                last_name = "De_IV"
+                female = no
+                age = 18
+                hq = region_indochina
+                commander_rank = commander_rank_3
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+            # Foreigner
+            create_character = {
+                is_admiral = yes        # Admiral - Đô đốc
+                first_name = "Foreigner"
+                last_name = "De_IV"
+                female = no
+                age = 20
+                hq = region_indochina
+                commander_rank = commander_rank_5
+                interest_group = ig_armed_forces
+                ideology = ideology_vibeha
+                traits = {
+                    brave
+                    expert_convoy_raider
+                    expert_naval_commander
+                }
+            }
+		}
+	}
+}
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+# Sự kiện "Tín ngưỡng Đạo Mẫu"
+daiviet_events.3 = {
+	type = country_event
+
+	title = daiviet_events.3.t			# Tiêu đề sự kiện (Tên sự kiện)
+	desc = daiviet_events.3.d			# Mô tả khái quát sự kiện (In đậm trắng)
+	flavor = daiviet_events.3.f			# Hương vị sự kiện (Nét riêng của sự kiện)
+
+	# Hình ảnh sự kiện
+	event_image = {
+		video = "gfx/event_pictures/DaoMau_Event.bk2"
+	}
+
+	# Biểu tượng sự kiện
+	icon = "gfx/interface/icons/event_icons/event_motherchild.dds"
+
+	# Hiệu ứng âm thanh cho sự kiện
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"									# Âm thanh chờ (cảnh báo)
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/leader_speaking_to_a_group_of_people"		# Âm thanh mở
+
+	# Thời gian chờ đến khi biến mất (tính bằng tháng)
+	duration = 3
+
+	# Trình kích hoạt (được mở bởi một sự kiện)
+	trigger = {
+        # 
+	}
+
+	# Kích hoạt sự kiện nếu thỏa mãn điều kiện ngay cả khi không click vào
+	immediate = {
+		# set_variable = complete_event_DaoMau
+	}
+
+	# Các nút tùy chọn
+	# Mỗi nút có một trình kích hoạt (trigger) riêng, nếu không thỏa mãn sẽ không xuất hiện
+	option = {
+		# Tên
+		name = daiviet_events.3.a
+		default_option = yes
+
+		# Thêm 100% Người dân Việt Nam trung thành
+		add_loyalists = {
+			culture = cu:vietnamese
+			value = 1
+		}
+
+		# Đổi tên tăng lữ thành "Nữ tu Đạo Mãu"
+		ig:ig_devout = {
+			set_interest_group_name = ig_Nutu_DaoMau
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_DaoMau
+		}
+	}
+}
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+# Sự kiện "Cổ dân trở về" - Thêm dân số vào Tonkin, Annam, Mekong
+daiviet_events.4 = {
+    type = country_event							# Loại sự kiện của quốc gia => ảnh hưởng lên cả quốc gia => modifier sẽ ảnh hưởng lên cả quốc gia
+
+	title = daiviet_events.4.t			# Tiêu đề sự kiện (Tên sự kiện)
+	desc = daiviet_events.4.d			# Mô tả khái quát sự kiện (In đậm trắng)
+	flavor = daiviet_events.4.f			# Hương vị sự kiện (Nét riêng của sự kiện)
+
+	# Hình ảnh sự kiện
+	event_image = {
+		video = "gfx/event_pictures/CoDanTroVe_Event.bk2"
+	}
+
+	# Biểu tượng sự kiện
+	icon = "gfx/interface/icons/event_icons/event_LordReturn.dds"
+
+	# Hiệu ứng âm thanh cho sự kiện
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"									# Âm thanh chờ (cảnh báo)
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/leader_speaking_to_a_group_of_people"		# Âm thanh mở
+
+	# Thời gian chờ đến khi biến mất (tính bằng tháng)
+	duration = 3
+
+	# Trình kích hoạt (được mở bởi một sự kiện)
+	trigger = {
+		# 
+	}
+
+	# Kích hoạt sự kiện nếu thỏa mãn điều kiện ngay cả khi không click vào
+	immediate = {
+		# 
+	}
+
+	# Các nút tùy chọn
+	# Mỗi nút có một trình kích hoạt (trigger) riêng, nếu không thỏa mãn sẽ không xuất hiện
+	option = {
+		# Tên
+		name = daiviet_events.4.a
+		default_option = yes
+            
+        s:STATE_TONKIN.region_state:DAI = {
+            #======================================================================================================================================================================#
+            create_pop = {
+				pop_type = academics    # Loại pop: Học giả	
+				culture = vietnamese    # Văn hóa: Việt Nam 
+				size = 2922016			# Số lượng: 2922016 người
+			}
+			create_pop = {
+				pop_type = clergymen    # Loại pop: Tăng lữ	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 290216			# Số lượng: 290216 người
+			}
+			create_pop = {
+				pop_type = engineers    # Loại pop: Kỹ sư	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 2922016			# Số lượng: 2922016 người
+			}
+			create_pop = {
+				pop_type = officers		# Loại pop: Sĩ quan	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 29216			# Số lượng: 29216 người
+			}
+			create_pop = {
+				pop_type = bureaucrats	# Loại pop: Quan chức chính phủ	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 29216			# Số lượng: 29216 người
+			}
+        }
+
+        s:STATE_ANNAM.region_state:DAI = {
+            #======================================================================================================================================================================#
+            create_pop = {
+				pop_type = academics    # Loại pop: Học giả	
+				culture = vietnamese    # Văn hóa: Việt Nam 
+				size = 2922016			# Số lượng: 2922016 người
+			}
+			create_pop = {
+				pop_type = clergymen    # Loại pop: Tăng lữ	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 290216			# Số lượng: 290216 người
+			}
+			create_pop = {
+				pop_type = engineers    # Loại pop: Kỹ sư	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 2922016			# Số lượng: 2922016 người
+			}
+			create_pop = {
+				pop_type = officers		# Loại pop: Sĩ quan	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 29216			# Số lượng: 29216 người
+			}
+			create_pop = {
+				pop_type = bureaucrats	# Loại pop: Quan chức chính phủ	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 29216			# Số lượng: 29216 người
+			}
+        }
+
+        s:STATE_MEKONG.region_state:DAI = {
+            #======================================================================================================================================================================#
+			create_pop = {
+				pop_type = academics    # Loại pop: Học giả	
+				culture = vietnamese    # Văn hóa: Việt Nam 
+				size = 2922016			# Số lượng: 2922016 người
+			}
+			create_pop = {
+				pop_type = clergymen    # Loại pop: Tăng lữ	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 290216			# Số lượng: 290216 người
+			}
+			create_pop = {
+				pop_type = engineers    # Loại pop: Kỹ sư	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 2922016			# Số lượng: 2922016 người
+			}
+			create_pop = {
+				pop_type = officers		# Loại pop: Sĩ quan	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 29216			# Số lượng: 29216 người
+			}
+			create_pop = {
+				pop_type = bureaucrats	# Loại pop: Quan chức chính phủ	
+				culture = vietnamese	# Văn hóa: Việt Nam 
+				size = 29216			# Số lượng: 29216 người
+			}
+        }
+	}
+}
